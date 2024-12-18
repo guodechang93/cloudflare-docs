@@ -46,6 +46,10 @@ Intune allows you to insert [predefined variables](https://learn.microsoft.com/e
 
 ### Per-app VPN for iOS
 
+:::note
+Per-app VPN is supported on Cloudflare One Agent version `1.8` or greater for iOS.
+:::
+
 Before proceeding with per-app VPN configuration, you must make sure Auto connect is disabled for your organization in the Cloudflare dashboard. To disable Auto connect:
 1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com/) and select your account.
 2. Select **Zero Trust** > **Settings** > **WARP Client**.
@@ -172,6 +176,10 @@ To deploy WARP on Android devices:
 Intune will now deploy the Cloudflare One Agent to user devices.
 
 ### Per-app VPN for Android
+
+:::note
+Per-app VPN is supported on the Cloudflare One Agent app version `2.3` or greater for Android.
+:::
 
 Review the following steps to approve and deploy the Cloudflare One Agent application in Microsoft Intune and use a configuration policy to set up the per-app VPN. To use the per-app VPN, the admin must have linked the Microsoft Intune account with the Google-managed Play account. For more information, refer to [Connect your Intune account to your managed Google Play account in the Microsoft documentation](https://learn.microsoft.com/en-us/mem/intune/enrollment/connect-intune-android-enterprise).
 
