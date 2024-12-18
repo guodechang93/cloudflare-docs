@@ -46,30 +46,37 @@ Intune allows you to insert [predefined variables](https://learn.microsoft.com/e
 
 ### Per-app VPN for iOS
 
-Before proceeding with per-app VPN configuration, you must make sure Autoconnect is disabled for your organization in the Cloudflare dashboard.
+Before proceeding with per-app VPN configuration, you must make sure Auto connect is disabled for your organization in the Cloudflare dashboard. To disable Auto connect:
+1. Log in to the [Cloudflare dashboard](https://dash.cloudflare.com/) and select your account.
+2. Select **Zero Trust** > **Settings** > **WARP Client**.
+3. Go to **Device Settings** > select your profile and select **Edit** > toggle **Auto Connect** off.
 
-1. Log in to Microsoft Intunes admin center for your organization.
-2. Go to **Devices** > **iOS/iPadOS Devices** > **Manage Devices** > **Configuration**. Select **+ Create** > **New Policy.**
+To configure per-app VPN:
+
+1. Log in to Microsoft Intune admin center for your organization.
+2. Go to **Devices** > **iOS/iPadOS Devices** > **Manage Devices** > **Configuration** > select **+ Create** > **New Policy.**
 3. Select _Templates_ in the **Profile Type** dropdown menu, then select **VPN** as the **Template Name** and select **Create**.
 4. Give the configuration a name, and an optional description, if you desire, then select **Next**.
 5. Select _Custom VPN_ from the **Connection Type** dropdown menu.
 6. Expand the **Base VPN** section.
 	- Give the VPN connection a name.
-	- Enter "1.1.1.1" as the VPN server address (this value is not actually used).
+	- Enter "1.1.1.1" as the VPN server address (this value is not actually used.)
 	- Set _Username and password_ as the **Authentication method**.
-	- Enter `com.cloudflare.cloudflareoneagent` as the VPN identifier.
-	- Enter any Key and Value into the custom VPN attributes (Cloudflare One does not use these but Intunes requires at least one entry).
-7. Expand the **Automatic VPN** section. Select _Per-app VPN_ as the **Type of automatic VPN** and _packet-tunnel_ as the **Provider Type**. Select **Next**.
-8. Add any Groups, Users, or Devices to which you want to distribute this configuration and Select **Next**.
+	- Enter "com.cloudflare.cloudflareoneagent" as the VPN identifier.
+	- Enter any Key and Value into the custom VPN attributes (Cloudflare One does not use these but Intunes requires at least one entry.)
+7. Expand the **Automatic VPN** section.
+	- Select _Per-app VPN_ as the **Type of automatic VPN**.
+	- Select _packet-tunnel_ as the **Provider Type**. Select **Next**.
+8. Add any Groups, Users, or Devices to which you want to distribute this configuration and select **Next**.
 9. Review the settings and select **Create**.
 10. Go to **Apps** > **iOS/iPadOS Apps** and select **+ Add**.
 11. Select _iOS store app_ from the **App Type** dropdown > **Select**.
 12. Select **Search the App Store**, then search for the app whose traffic you want to go through the VPN > select the desired app > **Select**.
-13. Review the selected app settings and Select **Next**.
+13. Review the selected app settings and select **Next**.
 14. Select **+ Add Group** to add the group of users to which to distribute this app. Then select **None** underneath VPN.
 15. Select the configuration you just created from the VPN dropdown menu and select **OK**.
 16. Select **Next**, review the settings, then select **Create**.
-17. Repeat steps 10-16 for each app you want to use the VPN.
+17. Repeat steps 10-16 for each app you want to use the VPN with.
 
 :::note
 
@@ -166,7 +173,9 @@ Intune will now deploy the Cloudflare One Agent to user devices.
 
 ### Per-app VPN for Android
 
-Review the following steps to approve and deploy the Cloudflare One Agent application in Microsoft Intunes and use a configuration policy to set up the per-app VPN. To use the per-app VPN, you must have linked your Microsoft Intune account with the Google-managed Play account as described in the instructions above.
+Review the following steps to approve and deploy the Cloudflare One Agent application in Microsoft Intune and use a configuration policy to set up the per-app VPN. To use the per-app VPN, the admin must have linked the Microsoft Intune account with the Google-managed Play account. For more information, refer to [Connect your Intune account to your managed Google Play account in the Microsoft documentation](https://learn.microsoft.com/en-us/mem/intune/enrollment/connect-intune-android-enterprise).
+
+#### Approve the Cloudflare One Agent app within Microsoft Intune
 
 1. Log into the Microsoft Intune admin center.
 2. Go to **Apps** > **All apps** > select **Add**.
@@ -278,7 +287,7 @@ To configure your Cloudflare One Agent app policy:
 	```
 
 	3. After you have configured the deployment parameters, click **Next**.
-4. Fill out the assignments for the configuration policy. The admin can Include or Exclude specific groups of users to this policy. After you finish, select Next.
+4. Fill out the assignments for the configuration policy. The admin can `Include` or `Exclude` specific groups of users to this policy. After you finish, select **Next**.
 5. Review the policy and select **Create**.
 
 #### Assign users to the Cloudflare One Agent application
@@ -287,4 +296,4 @@ To configure your Cloudflare One Agent app policy:
 2. Under **Manage**, select **Properties** and near **Assignments**, select **Edit**.
 3. Add the groups of users in the assignments > select **Review + Save** > select **Save**.
 
-Inture will now deploy the Cloudflare One Agent application on a user's devise with the managed parameters.
+Intune will now deploy the Cloudflare One Agent application on a user's device with the managed parameters.
