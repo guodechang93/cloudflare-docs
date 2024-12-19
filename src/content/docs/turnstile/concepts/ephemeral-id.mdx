@@ -10,6 +10,6 @@ Ephemeral IDs generate a unique short-lived ID that can link behavior to a speci
 
 When the same visitor interacts with Turnstile widgets from different Cloudflare customers, they receive different Ephemeral IDs for each contact. In attacks where fraudsters attempt to disguise themselves using different IP addresses, Ephemeral IDs detect abuse patterns more accurately than determining whether the visitor is a human or a bot. 
 
-Ephemeral IDs are not unique and have a lifespan of XX seconds/minutes. These IDs cannot be used to track a single visitor over multiple days as they change frequently.
+Ephemeral IDs are not unique and have a lifespan of up to a few days. These IDs cannot be used to track a single visitor over multiple days as they change frequently.
 
 Refer to the [blog post](https://blog.cloudflare.com/turnstile-ephemeral-ids-for-fraud-detection/) for more information.

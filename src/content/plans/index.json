@@ -2021,11 +2021,6 @@
 					"free": "10 widgets",
 					"ent": "Unlimited"
 				},
-				"logo": {
-					"title": "Ability to remove the Cloudflare logo",
-					"free": "No",
-					"ent": "Yes"
-				},
 				"modes": {
 					"title": "Interactivity modes",
 					"link": "/turnstile/get-started/client-side-rendering/#appearance-modes",
